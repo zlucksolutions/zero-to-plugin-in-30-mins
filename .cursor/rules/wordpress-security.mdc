@@ -1,0 +1,70 @@
+# WordPress Security Best Practices
+
+## Input Validation and Sanitization
+- Always sanitize user inputs using WordPress functions:
+  - `sanitize_text_field()` for text inputs
+  - `sanitize_email()` for email addresses
+  - `sanitize_url()` for URLs
+  - `sanitize_textarea_field()` for textarea content
+  - `intval()` for integers
+  - `floatval()` for floats
+- Validate data types and ranges
+- Use `wp_kses()` for HTML content with allowed tags
+
+## Output Escaping
+- Always escape output using appropriate functions:
+  - `esc_html()` for plain text
+  - `esc_attr()` for HTML attributes
+  - `esc_url()` for URLs
+  - `esc_js()` for JavaScript
+  - `esc_sql()` for SQL queries
+- Use `wp_kses()` for HTML content
+- Never trust user input
+
+## Nonce Verification
+- Always use nonces for forms and AJAX requests
+- Create nonces with `wp_create_nonce()`
+- Verify nonces with `wp_verify_nonce()`
+- Use unique nonce names for different actions
+- Include nonces in all forms and AJAX requests
+
+## Capability Checks
+- Always check user capabilities before performing actions
+- Use `current_user_can()` for capability checks
+- Use appropriate capabilities:
+  - `manage_options` for settings
+  - `edit_posts` for content editing
+  - `activate_plugins` for plugin management
+- Never rely on user roles alone
+
+## Database Security
+- Use `$wpdb->prepare()` for all SQL queries
+- Never concatenate user input directly into SQL
+- Use WordPress functions instead of raw SQL when possible
+- Use `$wpdb->insert()`, `$wpdb->update()`, `$wpdb->delete()`
+- Validate and sanitize all database inputs
+
+## File Operations
+- Use `wp_upload_dir()` for file uploads
+- Validate file types and sizes
+- Use `wp_check_filetype()` for file validation
+- Never allow direct file access
+- Use `wp_handle_upload()` for file uploads
+
+## AJAX Security
+- Always verify nonces in AJAX handlers
+- Check user capabilities in AJAX handlers
+- Sanitize all AJAX inputs
+- Return only necessary data
+- Use `wp_die()` for unauthorized requests
+
+## Plugin Security
+- Never expose sensitive information in error messages
+- Use `wp_die()` instead of `die()` or `exit()`
+- Log errors appropriately without exposing details
+- Keep plugin files secure and up to date
+- Use HTTPS for external requests
+description:
+globs:
+alwaysApply: true
+---

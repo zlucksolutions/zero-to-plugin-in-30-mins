@@ -1,0 +1,63 @@
+# WordPress Performance Best Practices
+
+## Asset Loading
+- Use `wp_enqueue_script()` and `wp_enqueue_style()` for all assets
+- Set proper dependencies to avoid conflicts
+- Use `wp_register_script()` for reusable scripts
+- Load assets only when needed using conditional checks
+- Use `wp_enqueue_scripts` hook for frontend assets
+- Use `admin_enqueue_scripts` hook for admin assets
+
+## Database Optimization
+- Minimize database queries
+- Use `get_option()` and `update_option()` for settings
+- Cache frequently accessed data using `wp_cache_get()` and `wp_cache_set()`
+- Use `$wpdb->get_results()` with proper LIMIT clauses
+- Avoid querying in loops
+- Use WordPress transients for temporary data
+
+## Hook Optimization
+- Use appropriate hook priorities
+- Remove hooks when not needed using `remove_action()` and `remove_filter()`
+- Use `has_action()` and `has_filter()` to check if hooks exist
+- Avoid hooking into high-frequency events unnecessarily
+- Use `do_action_ref_array()` for performance-critical hooks
+
+## Caching Strategies
+- Use WordPress transients for temporary data storage
+- Use `wp_cache_get()` and `wp_cache_set()` for object caching
+- Implement proper cache invalidation
+- Use `wp_schedule_single_event()` for background tasks
+- Cache expensive operations
+
+## Code Optimization
+- Avoid processing in loops when possible
+- Use efficient PHP functions and WordPress functions
+- Minimize file includes and requires
+- Use lazy loading for heavy resources
+- Optimize database queries and reduce round trips
+
+## Frontend Performance
+- Minify CSS and JavaScript files
+- Use WordPress built-in minification when available
+- Optimize images and use appropriate formats
+- Use `wp_localize_script()` efficiently
+- Avoid inline scripts and styles
+
+## Admin Performance
+- Load admin assets only on relevant pages
+- Use conditional checks before loading heavy resources
+- Optimize admin queries and database operations
+- Use WordPress admin caching mechanisms
+- Minimize AJAX requests and optimize responses
+
+## Plugin Lifecycle
+- Clean up on plugin deactivation
+- Remove scheduled events on deactivation
+- Clean up database tables and options when appropriate
+- Use `register_deactivation_hook()` for cleanup tasks
+- Implement proper uninstall procedures
+description:
+globs:
+alwaysApply: true
+---

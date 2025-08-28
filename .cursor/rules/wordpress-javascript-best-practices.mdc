@@ -1,0 +1,56 @@
+# WordPress JavaScript Development Best Practices
+
+## WordPress JavaScript Standards
+- Follow WordPress JavaScript Coding Standards
+- Use 4 spaces for indentation
+- Use camelCase for variable and function names
+- Use PascalCase for class names
+- Use UPPERCASE for constants
+- Limit line length to 80 characters
+
+## WordPress JavaScript APIs
+- Use `wp.ajax` for AJAX requests
+- Use `wp.i18n` for internationalization
+- Use `wp.components` for UI components
+- Use `wp.element` for React-like functionality
+- Use `wp.data` for state management
+- Use `wp.hooks` for custom hooks
+
+## Enqueuing Scripts
+- Always use `wp_enqueue_script()` to load JavaScript
+- Use `wp_localize_script()` to pass PHP variables to JavaScript
+- Set proper dependencies
+- Use minified versions in production
+- Use `wp_register_script()` for reusable scripts
+
+## Security in JavaScript
+- Never output sensitive data directly to JavaScript
+- Use nonces for AJAX requests
+- Validate data on both client and server side
+- Use `wp_verify_nonce()` in AJAX handlers
+- Escape output using `wp_kses()` when needed
+
+## AJAX Best Practices
+- Use WordPress AJAX actions: `wp_ajax_` and `wp_ajax_nopriv_`
+- Always verify nonces in AJAX handlers
+- Sanitize and validate all AJAX inputs
+- Return proper JSON responses
+- Handle errors gracefully
+
+## Modern JavaScript Features
+- Use ES6+ features when supported
+- Use async/await for asynchronous operations
+- Use const and let instead of var
+- Use template literals for string interpolation
+- Use arrow functions when appropriate
+
+## WordPress Block Editor (Gutenberg)
+- Use `wp.blocks` for custom blocks
+- Use `wp.blockEditor` for block editor components
+- Use `wp.plugins` for plugin API
+- Follow block editor coding standards
+- Use proper block attributes and save functions
+description:
+globs:
+alwaysApply: true
+---

@@ -1,0 +1,47 @@
+# WordPress PHP Development Best Practices
+
+## WordPress Coding Standards
+- Follow WordPress Coding Standards (WPCS)
+- Use 4 spaces for indentation (no tabs)
+- Use single quotes for strings unless interpolation is needed
+- Use double quotes for HTML attributes
+- Limit line length to 80 characters
+- Use meaningful variable and function names
+
+## WordPress Functions and Hooks
+- Always use WordPress native functions when available
+- Use proper action and filter hooks
+- Hook into appropriate WordPress events
+- Use `add_action()` and `add_filter()` with proper priority
+- Always check if functions exist before calling them
+
+## Database Operations
+- Use `$wpdb` for database queries
+- Always prepare SQL statements to prevent SQL injection
+- Use WordPress options API for settings storage
+- Use `get_option()`, `update_option()`, `delete_option()`
+- Use `wp_insert_post()`, `wp_update_post()` for post operations
+
+## Security Functions
+- Use `wp_verify_nonce()` for nonce verification
+- Use `sanitize_text_field()`, `sanitize_email()`, etc. for input sanitization
+- Use `esc_html()`, `esc_attr()`, `esc_url()` for output escaping
+- Use `current_user_can()` for capability checks
+- Use `wp_die()` instead of `die()` or `exit()`
+
+## Internationalization
+- Use `__()` for translatable strings
+- Use `_e()` for echo'd translatable strings
+- Use `esc_html__()` for escaped translatable strings
+- Always provide text domain: `__('Text', 'aamgr')`
+- Use `_n()` for plural forms
+
+## Error Handling
+- Use `WP_Error` for error handling
+- Check return values from WordPress functions
+- Use `wp_die()` with appropriate error messages
+- Log errors using `error_log()` when appropriate
+description:
+globs:
+alwaysApply: true
+---

@@ -1,0 +1,33 @@
+# WordPress Plugin Structure and Organization
+
+## Plugin Header Requirements
+- Every plugin must have a proper header comment block at the top of the main plugin file
+- Include: Plugin Name, Description, Version, Author, License, Text Domain
+- Follow the exact format specified in WordPress documentation
+
+## File Organization
+- Main plugin file should be named after the plugin directory
+- Use descriptive directory and file names
+- Organize code into logical subdirectories:
+  - `/admin/` - Admin-specific functionality
+  - `/includes/` - Core plugin classes and functions
+  - `/public/` - Frontend functionality
+  - `/assets/` - CSS, JS, images
+  - `/languages/` - Translation files
+
+## Naming Conventions
+- Use the `aamgr_` prefix for all functions, classes, and constants to avoid conflicts
+- Use lowercase with underscores for function names: `aamgr_function_name()`
+- Use PascalCase for class names: `AAMGR_Class_Name`
+- Use UPPERCASE for constants: `AAMGR_CONSTANT_NAME`
+
+## Security Best Practices
+- Always use WordPress nonces for forms
+- Sanitize and validate all user inputs
+- Escape all outputs using appropriate functions
+- Use capability checks before displaying admin content
+- Follow the principle of least privilege
+description:
+globs:
+alwaysApply: true
+---
