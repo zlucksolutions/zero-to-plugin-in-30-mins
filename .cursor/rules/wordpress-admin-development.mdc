@@ -1,0 +1,55 @@
+# WordPress Admin Development Best Practices
+
+## Admin Settings Pages
+- Use `add_options_page()` for settings pages under Settings menu
+- Use `add_menu_page()` for top-level admin pages
+- Use `add_submenu_page()` for submenu pages
+- Always check user capabilities with `current_user_can()`
+- Use `register_setting()` to register settings
+- Use `add_settings_section()` and `add_settings_field()` for form fields
+
+## Settings API
+- Use WordPress Settings API for all forms
+- Register settings with `register_setting()`
+- Use `settings_fields()` and `wp_nonce_field()` in forms
+- Use `do_settings_sections()` to display sections
+- Use `get_option()` and `update_option()` for data storage
+
+## Admin Notices
+- Use `admin_notices` hook for displaying notices
+- Use `add_action('admin_notices', 'aamgr_admin_notice')`
+- Use WordPress notice classes: `notice`, `notice-success`, `notice-warning`, `notice-error`, `notice-info`
+- Use `is_admin()` to ensure notices only show in admin
+- Use `wp_kses()` to sanitize notice content
+
+## Admin UI Components
+- Use WordPress admin styling classes
+- Use `wp_enqueue_style()` for custom admin CSS
+- Use `wp_enqueue_script()` for admin JavaScript
+- Use WordPress color picker, date picker, and other UI components
+- Follow WordPress admin design patterns
+
+## Form Handling
+- Always use nonces for form security
+- Sanitize all form inputs
+- Validate data before processing
+- Use `wp_redirect()` for form redirects
+- Display success/error messages using admin notices
+
+## Capability Checks
+- Use `current_user_can('manage_options')` for settings pages
+- Use `current_user_can('edit_posts')` for content management
+- Use `current_user_can('activate_plugins')` for plugin management
+- Always check capabilities before displaying admin content
+- Use `wp_die()` for unauthorized access
+
+## Admin Hooks
+- Use `admin_init` for admin initialization
+- Use `admin_menu` for adding menu pages
+- Use `admin_enqueue_scripts` for admin assets
+- Use `admin_notices` for displaying notices
+- Use `admin_footer` for admin footer content
+description:
+globs:
+alwaysApply: true
+---
